@@ -3,26 +3,6 @@ const path = require("path");
 module.exports = function(config) {
 
     var customLaunchers = {
-        sl_ios_safari: {
-            base: 'SauceLabs',
-            browserName: 'safari',
-            platform: 'iOS',
-            deviceName: 'iPhone 7 Simulator',
-            version: '10.3',
-            deviceOrientation: 'portrait'
-        },
-        sl_safari_7: {
-            base: "SauceLabs",
-            browserName: "safari",
-            platform: "OS X 10.11",
-            version: "10.0"
-        },
-        sl_edge_13: {
-            base: "SauceLabs",
-            browserName: 'MicrosoftEdge',
-            platform: 'Windows 10',
-            version: '13.10586'
-         },
         ChromeHeadlessTravis: {
             base: "ChromeHeadless",
             flags: ['--no-sandbox']
@@ -67,13 +47,7 @@ module.exports = function(config) {
         mime: {
             'text/x-typescript': ['ts', 'tsx']
         },
-        sauceLabs: {
-            testName: "Bios-pw Unit tests",
-            retryLimit: 2,
-            recordVideo: false,
-            recordScreenshots: false
-        },
-        reporters: ["progress", "saucelabs", "coverage-istanbul"],
+        reporters: ["progress", "coverage-istanbul"],
         coverageIstanbulReporter: {
             reports: ['text', 'text-summary', "lcovonly"],
             dir: path.join(__dirname, "coverage"),
@@ -88,7 +62,6 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-sauce-launcher',
             'karma-webpack',
             'karma-coverage-istanbul-reporter'
         ]
